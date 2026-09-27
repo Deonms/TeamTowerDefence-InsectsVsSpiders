@@ -119,6 +119,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &73641802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 73641803}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &73641803
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73641802}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.33, y: -4.59, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1015714765}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1015714763
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,16 +180,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _countdown: 0
+  _spawnPoint: {fileID: 73641802}
   waves:
   - spiders:
     - {fileID: 846801526207220020, guid: c4679b0cdfd306e4185c7e47903cf74f, type: 3}
     - {fileID: 846801526207220020, guid: c4679b0cdfd306e4185c7e47903cf74f, type: 3}
+    TimeToNextArray: 0
   - spiders:
     - {fileID: 846801526207220020, guid: c4679b0cdfd306e4185c7e47903cf74f, type: 3}
     - {fileID: -6279528854417566290, guid: 48c64a3ed0181874bab1f871dc814a93, type: 3}
+    TimeToNextArray: 0
   - spiders:
     - {fileID: -6279528854417566290, guid: 48c64a3ed0181874bab1f871dc814a93, type: 3}
     - {fileID: -2420255652760962394, guid: 91e3aac318beed84ba74a131453750ed, type: 3}
+    TimeToNextArray: 0
 --- !u!4 &1015714765
 Transform:
   m_ObjectHideFlags: 0
@@ -171,7 +206,8 @@ Transform:
   m_LocalPosition: {x: 0.49075282, y: 1.9302887, z: 0.024610907}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 73641803}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1128487126
