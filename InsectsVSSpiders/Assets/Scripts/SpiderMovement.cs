@@ -42,9 +42,13 @@ public class SpiderMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Bereken de richting van de spin naar het doel
         Vector2 direction = (_target.position - transform.position);
+
+        // Bereken de afstand tussen de spin en het doel
         float distanceToTarget = direction.magnitude;
 
+        // Controleer of de spin bijna bij het doel is
         if (distanceToTarget < 0.1f)
         {
             transform.position = _target.position;
@@ -52,6 +56,7 @@ public class SpiderMovement : MonoBehaviour
         }
         else
         {
+            // Beweeg de spin richting het doel met de ingestelde snelheid
             _rb.linearVelocity = direction.normalized * _moveSpeed;
         }
     }
