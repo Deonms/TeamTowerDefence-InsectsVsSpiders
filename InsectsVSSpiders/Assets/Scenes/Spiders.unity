@@ -1190,7 +1190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startPoint: {fileID: 1653598006}
-  _path:
+  Path:
   - {fileID: 1045658672}
   - {fileID: 1668554242}
   - {fileID: 1204642167}
