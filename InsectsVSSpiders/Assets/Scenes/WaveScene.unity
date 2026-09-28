@@ -186,14 +186,20 @@ MonoBehaviour:
     - {fileID: 846801526207220020, guid: c4679b0cdfd306e4185c7e47903cf74f, type: 3}
     - {fileID: 846801526207220020, guid: c4679b0cdfd306e4185c7e47903cf74f, type: 3}
     TimeToNextArray: 0
+    TimeToNextWave: 0
+    SpidersLeft: 0
   - spiders:
     - {fileID: 846801526207220020, guid: c4679b0cdfd306e4185c7e47903cf74f, type: 3}
     - {fileID: -6279528854417566290, guid: 48c64a3ed0181874bab1f871dc814a93, type: 3}
     TimeToNextArray: 0
+    TimeToNextWave: 0
+    SpidersLeft: 0
   - spiders:
     - {fileID: -6279528854417566290, guid: 48c64a3ed0181874bab1f871dc814a93, type: 3}
     - {fileID: -2420255652760962394, guid: 91e3aac318beed84ba74a131453750ed, type: 3}
     TimeToNextArray: 0
+    TimeToNextWave: 0
+    SpidersLeft: 0
 --- !u!4 &1015714765
 Transform:
   m_ObjectHideFlags: 0

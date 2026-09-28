@@ -8,27 +8,28 @@ public class Spider : MonoBehaviour
 
     private float _countdown = 5f;
 
-    private int _currentWave = WaveSpawner.CurrentWave;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private int _currentWave;
+
     void Start()
     {
-        print("the spider movement script loaded in, this is however a temporary script!"); // i have a feeling jamiro is gonna see this at aftekenen dag fully integrated and working lmao
+        print("the spider movement script loaded in, this is however a temporary script!");
 
         _waveSpawner = GetComponentInParent<WaveSpawner>();
+
+        _currentWave = _waveSpawner.CurrentWave();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.Translate(transform.forward * _speed * Time.deltaTime);
+        transform.Translate(transform.right * _speed * Time.deltaTime);
 
         _countdown -= Time.deltaTime;
 
-        if(_countdown <= 0)
+        if (_countdown <= 0)
         {
             Destroy(gameObject);
 
-            _waveSpawner.waves[WaveSpawner._currentWave].SpidersLeft--;
+            _waveSpawner.waves[_currentWave].SpidersLeft--;
         }
     }
 }
