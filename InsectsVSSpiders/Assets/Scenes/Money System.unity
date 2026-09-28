@@ -1273,7 +1273,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -95.68091, w: 0}
+  m_margin: {x: 0, y: 0, z: -124.27258, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1695,9 +1695,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _amountOfMoneySpider: 0
-  _amountOfSpiderDisplay: {fileID: 0}
+  _amountOfSpiderDisplay: {fileID: 670288413}
   _amountOfMoneyInsect: 0
-  _amountOfInsectDisplay: {fileID: 0}
+  _amountOfInsectDisplay: {fileID: 2135779381}
   _normalSpin: 0
   _moederSpin: 0
   _babySpin: 0
@@ -1707,7 +1707,7 @@ MonoBehaviour:
   _turantulaSpin: 0
   _bee: 0
   _timer: 0
-  _moneyEarendThroughHoney: 10
+  _moneyEarendThroughHoney: 1
   _earnMoneyTimerMAX: 600
 --- !u!212 &1795200421
 SpriteRenderer:
