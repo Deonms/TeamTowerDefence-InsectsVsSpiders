@@ -8,7 +8,7 @@ public class Spider : MonoBehaviour
 
     private float _countdown = 5f;
 
-    private int _currentWave = WaveSpawner.CurrentWave;
+    //private int _currentWave = WaveSpawner.CurrentWave;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,7 +28,7 @@ public class Spider : MonoBehaviour
         {
             Destroy(gameObject);
 
-            _waveSpawner.waves[WaveSpawner._currentWave].SpidersLeft--;
+           // _waveSpawner.waves[WaveSpawner._currentWave].SpidersLeft--;
         }
     }
 }

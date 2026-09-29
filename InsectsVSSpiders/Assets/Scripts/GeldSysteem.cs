@@ -16,6 +16,7 @@ public class GeldSyteem : MonoBehaviour
     [SerializeField] private int _bigBoySpin = 0;
     [SerializeField] private int _blackWidowSpin = 0;
     [SerializeField] private int _turantulaSpin = 0;
+    [Header("insects to place")]
     [Header("earning money through bees")]
     [SerializeField] private int _bee = 0;
     [SerializeField] private int _timer = 0;
