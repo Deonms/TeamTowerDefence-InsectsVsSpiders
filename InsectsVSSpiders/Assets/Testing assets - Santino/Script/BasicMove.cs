@@ -15,4 +15,9 @@ public class BasicMove : MonoBehaviour
     {
         transform.position += new Vector3(speed, 0, 0) * Time.deltaTime;
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        transform.position = new Vector3(-15, 9, 1);
+    }
 }
