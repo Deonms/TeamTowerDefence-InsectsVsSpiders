@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Spider : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    private float _speed = 5;
 
     private WaveSpawner _waveSpawner;
 
@@ -12,7 +12,7 @@ public class Spider : MonoBehaviour
 
     void Start()
     {
-        print("the spider movement script loaded in, this is however a temporary script!");
+        print("the spider movement script loaded in, this is however a temporary script!"); // i have a feeling jamiro is gonna see this at aftekenen dag fully integrated and working lmao
 
         _waveSpawner = GetComponentInParent<WaveSpawner>();
 
@@ -21,7 +21,7 @@ public class Spider : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(transform.right * _speed * Time.deltaTime);
+        transform.Translate(Vector3.right * _speed * Time.deltaTime, Space.World);
 
         _countdown -= Time.deltaTime;
 
