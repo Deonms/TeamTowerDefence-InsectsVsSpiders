@@ -1,9 +1,12 @@
 using UnityEngine;
 using System;
+using Unity.Cinemachine;
 
 public class CameraMover : MonoBehaviour
 {
     private float _speed = 1.67f; // six seven lol gottem
+    public CinemachineCamera cam1;
+    public CinemachineCamera cam2;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,6 +47,18 @@ public class CameraMover : MonoBehaviour
 
             Vector3 position = new Vector3(0, 0, 0);
             transform.position += (new Vector3(_speed, 0, 0) * Time.deltaTime * _speed);
+        }
+
+        // camera switching test, temporary
+
+        if (Input.GetKey(KeyCode.Alpha1))
+        {
+            CameraManager.SwitchCamera(cam1);
+        }
+
+        if (Input.GetKey(KeyCode.Alpha2))
+        {
+            CameraManager.SwitchCamera(cam1);
         }
     }
 }
