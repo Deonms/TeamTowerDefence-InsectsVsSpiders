@@ -11,7 +11,9 @@ public class GeldSyteem : MonoBehaviour
     [SerializeField] private int _timer = 0;
     [SerializeField] private int _moneyEarendThroughHoney = 1;
     [SerializeField] private int _earnMoneyTimerMAX = 600;
-    
+    private int _amountOfBees = 0;
+    private AmountOfSpidersAndInsects _insectsAndSpiders;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,6 +24,7 @@ public class GeldSyteem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _amountOfBees = _insectsAndSpiders._bee;
         _timer = _timer + 1;
         if (_timer >= _earnMoneyTimerMAX)
         {
