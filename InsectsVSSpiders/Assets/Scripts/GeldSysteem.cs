@@ -7,7 +7,7 @@ public class GeldSyteem : MonoBehaviour
     [SerializeField] private double _amountOfMoneySpider = 0;
     [SerializeField] private TMP_Text _amountOfSpiderDisplay;
     [SerializeField] private TMP_Text _amountOfSpiderDisplayshop;
-    [SerializeField] private double _amountOfMoneyInsect = 0;
+    [SerializeField] public double _amountOfMoneyInsect = 0;
     [SerializeField] private TMP_Text _amountOfInsectDisplay;
     [SerializeField] private TMP_Text _amountOfInsectDisplayshop;
     [SerializeField] private int _timer = 0;
@@ -30,7 +30,7 @@ public class GeldSyteem : MonoBehaviour
         _amountOfSpiderDisplay.text = $"{_amountOfMoneySpider}";
         _amountOfSpiderDisplayshop.text = $"{_amountOfMoneySpider}";
         _amountOfInsectDisplayshop.text = $"{_amountOfMoneyInsect}";
-        _amountOfBees = _insectsAndSpiders._bee;
+        _amountOfBees = _insectsAndSpiders._bee; //idk why maar het werkt niet
         _timer = _timer + 1;
         if (_timer >= _earnMoneyTimerMAX)
         {

@@ -13,6 +13,8 @@ public class AmountOfSpidersAndInsects : MonoBehaviour
     [Header("insects to place")]
     [Header("earning money through bees")]
     [SerializeField] public int _bee = 0;
+    private BuyingAInsectorSpider _insectsAndSpidersBought;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
