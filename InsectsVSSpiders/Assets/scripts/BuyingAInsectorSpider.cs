@@ -9,9 +9,10 @@ public class BuyingAInsectorSpider : MonoBehaviour
     [SerializeField] double _insectAmount;
     [SerializeField] TMP_Text _costAntDisplay;
     private GeldSyteem _moneygetting;
-    private double _money = 0;
+    private double _money;
     [SerializeField] private string _TypeOfInsect;
     private string _intsectType;
+    
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class BuyingAInsectorSpider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        _costAntDisplay.text = $"{_insectCost}";
     }
     private void Awake()
     {
