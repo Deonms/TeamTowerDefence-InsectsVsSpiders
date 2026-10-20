@@ -38,8 +38,6 @@ public class WaveSpawner : MonoBehaviour
             _countdown -= Time.deltaTime;
         }
 
-        _countdown -= Time.deltaTime;
-
         if (_countdown <= 0)
         {
             _readyToCountDown = false;
@@ -53,8 +51,16 @@ public class WaveSpawner : MonoBehaviour
 
         if (waves[_currentWave].SpidersLeft == 0)
         {
-            _readyToCountDown = true;
             _currentWave++;
+
+            if (_currentWave >= waves.Length)
+            {
+                Debug.Log("they extinct bruh"); // poor spiders :c
+                enabled = false;
+                return;
+            }
+
+            _readyToCountDown = true;
         }
     }
 
