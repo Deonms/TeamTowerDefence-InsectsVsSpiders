@@ -5,30 +5,35 @@ public class BuyingAInsectorSpider : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private AmountOfSpidersAndInsects _insectsAndSpiders;
-    [SerializeField] double _antCost = 10;
-    [SerializeField] double _antAmount;
+    [SerializeField] double _insectCost = 10;
+    [SerializeField] double _insectAmount;
     [SerializeField] TMP_Text _costAntDisplay;
     private GeldSyteem _moneygetting;
     private double _money = 0;
+    [SerializeField] private string _TypeOfInsect;
+    private string _intsectType;
 
     void Start()
     {
-
+       _intsectType = $"_{_TypeOfInsect}amount";
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        _money = _moneygetting._amountOfMoneyInsect; //idk why maar het werkt niet
+        
     }
-    void boughtpressed()
+    private void Awake()
     {
-        if (_money >= _antCost)
+        _moneygetting = GetComponent<GeldSyteem>();
+    }
+    public void BuyInsect()
+    {
+        if (_money >= _insectCost)
         {
-            _money = _money - _antCost;
-            _antCost = _antCost + 10;
-            _antAmount = _antAmount + 1;
+            _money = _money - _insectCost;
+            _insectCost = _insectCost + 10;
+            _insectAmount = _insectAmount + 1;
             print("can buy");
         }
         else

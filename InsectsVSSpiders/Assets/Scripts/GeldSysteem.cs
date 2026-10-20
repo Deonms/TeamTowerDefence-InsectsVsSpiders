@@ -15,6 +15,7 @@ public class GeldSyteem : MonoBehaviour
     [SerializeField] private int _earnMoneyTimerMAX = 600;
     private int _amountOfBees = 0;
     private AmountOfSpidersAndInsects _insectsAndSpiders;
+    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,14 +31,19 @@ public class GeldSyteem : MonoBehaviour
         _amountOfSpiderDisplay.text = $"{_amountOfMoneySpider}";
         _amountOfSpiderDisplayshop.text = $"{_amountOfMoneySpider}";
         _amountOfInsectDisplayshop.text = $"{_amountOfMoneyInsect}";
-        _amountOfBees = _insectsAndSpiders._bee; //idk why maar het werkt niet
+        
+
         _timer = _timer + 1;
         if (_timer >= _earnMoneyTimerMAX)
         {
-           _amountOfMoneyInsect = _amountOfMoneyInsect + (_moneyEarendThroughHoney * _amountOfBees);
+            _amountOfMoneyInsect = _amountOfMoneyInsect + (_moneyEarendThroughHoney * _amountOfBees);
             _timer = 0;
         }
 
-       
+
+    }
+    private void Awake()
+    {
+        _insectsAndSpiders = GetComponent<AmountOfSpidersAndInsects>();
     }
 }

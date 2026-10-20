@@ -4041,6 +4041,8 @@ GameObject:
   - component: {fileID: 2062685784}
   - component: {fileID: 2062685783}
   - component: {fileID: 2062685782}
+  - component: {fileID: 2062685785}
+  - component: {fileID: 2062685786}
   m_Layer: 5
   m_Name: Ant knop
   m_TagString: Untagged
@@ -4112,7 +4114,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2062685783}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2062685785}
+        m_TargetAssemblyTypeName: BuyingAInsectorSpider, Assembly-CSharp
+        m_MethodName: BuyInsect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 2062685786}
+        m_TargetAssemblyTypeName: totheshop, Assembly-CSharp
+        m_MethodName: Onclick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2062685783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4151,6 +4177,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062685779}
   m_CullTransparentMesh: 1
+--- !u!114 &2062685785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062685779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead9c715287a6f643b7b43cc61908356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _insectCost: 10
+  _insectAmount: 0
+  _costAntDisplay: {fileID: 1610350148}
+  _TypeOfInsect: ant
+--- !u!114 &2062685786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062685779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab315ecb579c730458095bbfd9084dd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _xCoords: 0
+  _yCoords: 0.87
+  _camera: {fileID: 512465379}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
