@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RangeBugs : MonoBehaviour
@@ -16,13 +17,22 @@ public class RangeBugs : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        _Targets.Add(other.gameObject);
+        print("Target Entered");
+       if( _Targets.Add(other.gameObject))
+        {   
+            OrderedEnemies.Add(other.gameObject); 
+        }
     }
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        _Targets.Remove(other.gameObject);
+        if (_Targets.Remove(other.gameObject))
+        { 
+            OrderedEnemies.Remove(other.gameObject);
+        }
+        
     }
     public GameObject GetClosest(Vector3 targetPosition)
     {
@@ -47,9 +57,11 @@ public class RangeBugs : MonoBehaviour
     public GameObject FirstTarget()
     {
 
-        _Targets.UnionWith(OrderedEnemies);
-        _CurrentTarget = OrderedEnemies[0];
-        return _CurrentTarget;
+        if(OrderedEnemies.Count == 0)
+        {
+            return null;
+        }
+        return OrderedEnemies.First();
     }
     public GameObject LastTarget()
     {

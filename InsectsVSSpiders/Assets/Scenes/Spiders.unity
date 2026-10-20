@@ -131,7 +131,8 @@ GameObject:
   - component: {fileID: 26953129}
   - component: {fileID: 26953128}
   - component: {fileID: 26953127}
-  m_Layer: 0
+  - component: {fileID: 26953130}
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26953125}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -227,6 +228,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26953125}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &26953130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26953125}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f9864e84c7df9d4bb96fe6810551291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TempHP: 3
+  Startpostion: {fileID: 1653598005}
 --- !u!1 &80103650
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,9 +770,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 268603501}
     - target: {fileID: 2121777103524868668, guid: 6c07257d9a56d2e4aa6edefb84ac2744, type: 3}
-      propertyPath: _Projectile
+      propertyPath: rangeBugs
       value: 
-      objectReference: {fileID: 8282177655690214164, guid: d9a73d9bec9bfc3409434607d45f6a13, type: 3}
+      objectReference: {fileID: 1484944551}
     - target: {fileID: 6008980090225227220, guid: 6c07257d9a56d2e4aa6edefb84ac2744, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.6823843
@@ -798,18 +813,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6428998368496290094, guid: 6c07257d9a56d2e4aa6edefb84ac2744, type: 3}
-      propertyPath: m_Enabled
-      value: 0
+    - target: {fileID: 6059369650036433556, guid: 6c07257d9a56d2e4aa6edefb84ac2744, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7837183954426548332, guid: 6c07257d9a56d2e4aa6edefb84ac2744, type: 3}
       propertyPath: m_Name
       value: Bomba Beetle
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6059369650036433556, guid: 6c07257d9a56d2e4aa6edefb84ac2744, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1686203389875455243, guid: 6c07257d9a56d2e4aa6edefb84ac2744, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1484944551}
+    - targetCorrespondingSourceObject: {fileID: 1686203389875455243, guid: 6c07257d9a56d2e4aa6edefb84ac2744, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1484944552}
   m_SourcePrefab: {fileID: 100100000, guid: 6c07257d9a56d2e4aa6edefb84ac2744, type: 3}
 --- !u!1 &911799435
 GameObject:
@@ -1338,6 +1360,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 80103651}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1484944550 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1686203389875455243, guid: 6c07257d9a56d2e4aa6edefb84ac2744, type: 3}
+  m_PrefabInstance: {fileID: 843134614}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1484944551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484944550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5da48cf078c5f14c800797aa678f5c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &1484944552
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484944550}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.00000005960466, y: 0}
+  m_Radius: 0.5
 --- !u!1 &1579282456
 GameObject:
   m_ObjectHideFlags: 0
@@ -1775,6 +1850,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spider
       objectReference: {fileID: 0}
+    - target: {fileID: 2769045469507668382, guid: 37504f7a8cf63a246a5aacd65b0d5569, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5886114039351405524, guid: 37504f7a8cf63a246a5aacd65b0d5569, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1791,5 +1874,5 @@ SceneRoots:
   - {fileID: 423706955}
   - {fileID: 833137229}
   - {fileID: 80103651}
-  - {fileID: 2556538452104125376}
   - {fileID: 843134614}
+  - {fileID: 2556538452104125376}

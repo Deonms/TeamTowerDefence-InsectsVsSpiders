@@ -296,7 +296,6 @@ GameObject:
   - component: {fileID: 7663747853403834374}
   - component: {fileID: 8117210143113326091}
   - component: {fileID: 8777162621412623777}
-  - component: {fileID: 6428998368496290094}
   - component: {fileID: 2121777103524868668}
   m_Layer: 7
   m_Name: Bomba Beetle
@@ -397,20 +396,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6428998368496290094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7837183954426548332}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f5503da49d345e49b2ded0b16d3a3d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Projectile: {fileID: 0}
-  _Target: {fileID: 0}
 --- !u!114 &2121777103524868668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,7 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Target: {fileID: 0}
-  _Projectile: {fileID: 0}
+  _Projectile: {fileID: 8282177655690214164, guid: d9a73d9bec9bfc3409434607d45f6a13, type: 3}
   _Pspeed: 20
   _Cooldown: 2
   maxPredictionTime: 2

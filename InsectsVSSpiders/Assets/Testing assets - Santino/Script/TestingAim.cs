@@ -12,6 +12,7 @@ public class TestingAim : MonoBehaviour
     [SerializeField]private float _Pspeed = 20f;
     bool ReadyToShoot = true;
     [SerializeField]private float _Cooldown = 2f;
+    [SerializeField]private RangeBugs rangeBugs;
 
     [Header("Prediction")]
     public float maxPredictionTime = 2f;
@@ -28,6 +29,10 @@ public class TestingAim : MonoBehaviour
 
     void Update()
     {
+        if (rangeBugs.FirstTarget() == null)
+            return;
+        _Target = rangeBugs.FirstTarget().transform;
+
         if (_Target == null)
             return;
 
