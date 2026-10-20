@@ -38,7 +38,7 @@ public class GeldSyteem : MonoBehaviour
         {
             _amountOfMoneyInsect = _amountOfMoneyInsect + (_moneyEarendThroughHoney * _amountOfBees);
             _timer = 0;
-        }
+        };
 
 
     }

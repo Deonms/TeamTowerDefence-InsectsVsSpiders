@@ -8,7 +8,7 @@ public class BuyingAInsectorSpider : MonoBehaviour
     [SerializeField] double _insectCost = 10;
     [SerializeField] double _insectAmount;
     [SerializeField] TMP_Text _costAntDisplay;
-    private GeldSyteem _moneygetting;
+    [SerializeField]private GeldSyteem _moneygetting;
     private double _money = 0;
     [SerializeField] private string _TypeOfInsect;
     private string _intsectType;
@@ -21,11 +21,11 @@ public class BuyingAInsectorSpider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        _money = _moneygetting._amountOfMoneyInsect;
     }
     private void Awake()
     {
-        _moneygetting = GetComponent<GeldSyteem>();
+        //_moneygetting = GetComponent<GeldSyteem>();
     }
     public void BuyInsect()
     {
