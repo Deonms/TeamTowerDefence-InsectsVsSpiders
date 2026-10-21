@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 5327079138878423737}
   - component: {fileID: 1203379380490187371}
   - component: {fileID: 2152558690320223857}
-  - component: {fileID: 6059369650036433556}
+  - component: {fileID: 5303385214587944990}
+  - component: {fileID: 3663623776043147868}
   m_Layer: 7
   m_Name: Range
   m_TagString: Untagged
@@ -87,13 +88,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6059369650036433556
-CapsuleCollider:
+--- !u!114 &5303385214587944990
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1686203389875455243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5da48cf078c5f14c800797aa678f5c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &3663623776043147868
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686203389875455243}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -102,14 +118,24 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.50000036
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.00000053644203, y: 0, z: 0.00000038743036}
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.00000007450582, y: 0}
+  m_Radius: 0.5
 --- !u!1 &2593013179877227948
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,4 +438,5 @@ MonoBehaviour:
   _Projectile: {fileID: 8282177655690214164, guid: d9a73d9bec9bfc3409434607d45f6a13, type: 3}
   _Pspeed: 20
   _Cooldown: 2
+  rangeBugs: {fileID: 5303385214587944990}
   maxPredictionTime: 2

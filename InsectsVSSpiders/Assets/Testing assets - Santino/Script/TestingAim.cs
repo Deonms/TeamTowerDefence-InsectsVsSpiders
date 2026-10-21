@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -95,7 +95,7 @@ public class TestingAim : MonoBehaviour
     private void FireBall(Vector3 DD)
     {
         GameObject instance = Instantiate(_Projectile, transform.position, Quaternion.identity);
-        instance.GetComponent<Rigidbody>().linearVelocity = DD * _Pspeed;
+        instance.GetComponent<Rigidbody2D>().linearVelocity = DD * _Pspeed;
 
     }
     private void ResetReadyToShoot()

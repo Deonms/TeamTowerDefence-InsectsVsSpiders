@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Blast : MonoBehaviour
 {
+    [SerializeField]private int _Damage = 10;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,8 +17,11 @@ public class Blast : MonoBehaviour
        
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
+        print("Blast hit " + collision.gameObject.name);
+        //verander Health en TakeDamge naar wat jij al heb, ze zijn niet uniek
+        //collision.gameObject.GetComponent<Health>().TakeDamage(_Damage);
     }
 }
