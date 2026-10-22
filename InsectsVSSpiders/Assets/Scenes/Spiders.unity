@@ -1054,12 +1054,24 @@ MonoBehaviour:
   _spiderPrefabs:
   - {fileID: 5345486606868744061, guid: 7d5eafc83fbd0bf49bba9fc9fdf9812e, type: 3}
   - {fileID: 5345486606868744061, guid: 7d5eafc83fbd0bf49bba9fc9fdf9812e, type: 3}
+  - {fileID: 5345486606868744061, guid: 7d5eafc83fbd0bf49bba9fc9fdf9812e, type: 3}
+  - {fileID: 5345486606868744061, guid: 7d5eafc83fbd0bf49bba9fc9fdf9812e, type: 3}
+  - {fileID: 5345486606868744061, guid: 7d5eafc83fbd0bf49bba9fc9fdf9812e, type: 3}
+  - {fileID: 5345486606868744061, guid: 7d5eafc83fbd0bf49bba9fc9fdf9812e, type: 3}
   - {fileID: 5345486606868744061, guid: d4ca6ca1f809a1649bc84c39b8985fb7, type: 3}
-  _baseSpiders: 5
+  - {fileID: 5345486606868744061, guid: 587b1816688fbbc46a7b95702aebde87, type: 3}
+  - {fileID: 5345486606868744061, guid: 54aa2a1c116eebc4d933052cb470a471, type: 3}
+  - {fileID: 5345486606868744061, guid: 1e48e3cf7fb17ee498932cf4b85db242, type: 3}
+  _bigSpiderSpawnChance: 0.1
+  _bigSpiderPrefabs:
+  - {fileID: 5345486606868744061, guid: eac49c77348dcea4b8065fd7380b7957, type: 3}
+  - {fileID: 5345486606868744061, guid: 61f7e77f43d57a844b117a9b8057ebc1, type: 3}
+  _baseSpiders: 3
   _spidersPerSecond: 0.5
   _timeBetweenWaves: 5
   _diffScalingFactor: 0.75
   _spidersPerSecondCap: 15
+  _spidersLeftToSpawn: 0
 --- !u!1 &1377754879
 GameObject:
   m_ObjectHideFlags: 0

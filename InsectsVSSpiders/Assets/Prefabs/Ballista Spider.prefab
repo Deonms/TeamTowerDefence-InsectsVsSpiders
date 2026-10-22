@@ -178,6 +178,6 @@ MonoBehaviour:
   _rb: {fileID: 1265912233859261389}
   _moveSpeed: 2.5
   _health: 3
-  _throwRange: 3
-  _throwCooldown: 5
+  _throwRange: 1
+  _throwCooldown: 10
   _waypointsToThrow: 1

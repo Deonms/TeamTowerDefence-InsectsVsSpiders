@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 818814059223307253}
   - component: {fileID: 1265912233859261389}
   - component: {fileID: 6604109537569891416}
-  - component: {fileID: 9112811878909013207}
+  - component: {fileID: -5186657657997678299}
   m_Layer: 0
   m_Name: New Castle Big Boy
   m_TagString: Untagged
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2131889275007410482, guid: 16c1e511676a4754da1b53761c4e9aef, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.42138356, g: 0.26314962, b: 0.03842802, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -163,7 +163,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &9112811878909013207
+--- !u!114 &-5186657657997678299
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5345486606868744061}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee7869d6298c3584f90439e9dab3c1f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b67d6982b7b08a4299b4d5ad477c37b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 1265912233859261389}

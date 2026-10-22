@@ -6,9 +6,12 @@ public class SpiderSpawner : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject[] _spiderPrefabs;
+    [Range(0f, 1f)]
+    [SerializeField] private float _bigSpiderSpawnChance = 0.1f;
+    [SerializeField] private GameObject[] _bigSpiderPrefabs;
 
     [Header("Attributes")]
-    [SerializeField] private int _baseSpiders = 5;
+    [SerializeField] private int _baseSpiders = 3;
     [SerializeField] private float _spidersPerSecond = 0.5f;
     [SerializeField] private float _timeBetweenWaves = 5f;
     [SerializeField] private float _diffScalingFactor = 0.75f;
@@ -20,7 +23,7 @@ public class SpiderSpawner : MonoBehaviour
     private int _currentWave = 1;
     private float _timeSinceLastSpawn;
     private int _spidersAlive;
-    private int _spidersLeftToSpawn;
+    [SerializeField] private int _spidersLeftToSpawn;
     private float _sps;
     private bool _isSpawning = false;
 
@@ -47,7 +50,6 @@ public class SpiderSpawner : MonoBehaviour
         {
             SpawnSpider();
             _spidersLeftToSpawn--;
-            _spidersAlive++;
             _timeSinceLastSpawn = 0f;
         }
 
@@ -87,8 +89,24 @@ public class SpiderSpawner : MonoBehaviour
         Vector3 spawnPosition = LevelManager.Main.StartPoint.position;
         spawnPosition.z = -2f;
 
-        GameObject spider = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
+        // Spawn a normal spider.
+        Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
+        _spidersAlive++;
+
+        // Check whether a big spider should spawn.
+        if (_currentWave >= 3 &&
+            _bigSpiderPrefabs.Length > 0 &&
+            Random.value < _bigSpiderSpawnChance)
+        {
+            index = Random.Range(0, _bigSpiderPrefabs.Length);
+            prefabToSpawn = _bigSpiderPrefabs[index];
+
+            // Spawn a big spider.
+            Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
+            _spidersAlive++;
+        }
     }
+
 
     private int SpidersPerWave()
     {

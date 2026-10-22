@@ -1,6 +1,7 @@
+
 using UnityEngine;
 
-public class BallistaSpiderMovement : SpiderMovement
+public class BallistaSpider : SpiderMovement
 {
     [Header("Ballista Attack")]
     [SerializeField] private float _throwRange = 3f;
@@ -25,14 +26,32 @@ public class BallistaSpiderMovement : SpiderMovement
 
         foreach (SpiderMovement spider in spiders)
         {
-            // Ignore this Ballista and spiders that are dead.
+            // Ignore this Ballista and dead spiders.
             if (spider == this || spider.IsDead)
             {
                 continue;
             }
 
+            // Do not throw the Mother Spider.
+            if (spider.GetComponent<MotherSpider>() != null)
+            {
+                continue;
+            }
+
+            // Do not throw Newcastle Big Boy.
+            if (spider.GetComponent<BigBoySpider>() != null)
+            {
+                continue;
+            }
+
+            // Do not throw Ballista Spider.
+            if (spider.GetComponent<BallistaSpider>() != null)
+            {
+                continue;
+            }
+
             // Only select spiders behind the Ballista.
-            if (spider.PathIndex >= PathIndex) 
+            if (spider.PathIndex >= PathIndex)
             {
                 continue;
             }
@@ -46,6 +65,7 @@ public class BallistaSpiderMovement : SpiderMovement
             }
         }
 
+        // Only one spider is selected per attack.
         if (nearestSpider == null)
         {
             return;
@@ -53,19 +73,17 @@ public class BallistaSpiderMovement : SpiderMovement
 
         int destinationIndex = nearestSpider.PathIndex + _waypointsToThrow;
 
-        // Don't throw a spider onto the final waypoint.
+        // Do not throw onto the final waypoint.
         if (destinationIndex >= LevelManager.Main.Path.Length - 1)
         {
-            Debug.Log("Ballista skipped a throw: target is too close to the end.");
             return;
         }
 
-        Debug.Log("Ballista throwing " + nearestSpider.name + 
-            " from waypoint " + nearestSpider.PathIndex +
-            " to waypoint " + destinationIndex);
+        Debug.Log("Ballista threw: " + nearestSpider.name);
 
         nearestSpider.MoveToPathIndex(destinationIndex);
 
-        _nextThrowTime = Time.deltaTime + _throwCooldown;
+        // Start the cooldown.
+        _nextThrowTime = Time.time + _throwCooldown;
     }
 }
