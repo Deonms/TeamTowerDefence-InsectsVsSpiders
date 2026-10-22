@@ -8,7 +8,7 @@ public class BuyingAInsectorSpider : MonoBehaviour
     [SerializeField] double _insectCost = 10;
     [SerializeField] double _insectAmount;
     [SerializeField] TMP_Text _costAntDisplay;
-    private GeldSyteem _moneygetting;
+    [SerializeField] private GeldSyteem _moneygetting;
     private double _money;
     [SerializeField] private string _TypeOfInsect;
     private string _intsectType;
@@ -23,16 +23,14 @@ public class BuyingAInsectorSpider : MonoBehaviour
     void Update()
     {
         _costAntDisplay.text = $"{_insectCost}";
+        _money = _moneygetting._amountOfMoneyInsect;
     }
-    private void Awake()
-    {
-        _moneygetting = GetComponent<GeldSyteem>();
-    }
+    
     public void BuyInsect()
     {
         if (_money >= _insectCost)
         {
-            _money = _money - _insectCost;
+            _moneygetting._amountOfMoneyInsect = _money - _insectCost;
             _insectCost = _insectCost + 10;
             _insectAmount = _insectAmount + 1;
             print("can buy");
