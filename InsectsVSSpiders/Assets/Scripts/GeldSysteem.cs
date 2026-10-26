@@ -31,12 +31,12 @@ public class GeldSyteem : MonoBehaviour
         _amountOfSpiderDisplay.text = $"{_amountOfMoneySpider}";
         _amountOfSpiderDisplayshop.text = $"{_amountOfMoneySpider}";
         _amountOfInsectDisplayshop.text = $"{_amountOfMoneyInsect}";
-        _beesBought._insectAmount = _amountOfBees;
+
+        _amountOfBees = _beesBought._insectAmount;
 
         _timer = _timer + 1;
         if (_timer >= _earnMoneyTimerMAX)
         {
-            _beesBought._insectAmount = _amountOfBees;
             _amountOfMoneyInsect = _amountOfMoneyInsect + (_moneyEarendThroughHoney * _amountOfBees);
             _timer = 0;
         };

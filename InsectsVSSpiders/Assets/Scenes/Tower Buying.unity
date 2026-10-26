@@ -548,6 +548,7 @@ MonoBehaviour:
   _insectAmount: 0
   _costAntDisplay: {fileID: 675064421}
   _moneygetting: {fileID: 1517882527}
+  _insectCostIncrease: 100
   _TypeOfInsect: Kever
 --- !u!114 &221577831
 MonoBehaviour:
@@ -2198,6 +2199,7 @@ MonoBehaviour:
   _insectAmount: 0
   _costAntDisplay: {fileID: 1020780756}
   _moneygetting: {fileID: 1517882527}
+  _insectCostIncrease: 25
   _TypeOfInsect: bij
 --- !u!114 &853439171
 MonoBehaviour:
@@ -2676,6 +2678,7 @@ MonoBehaviour:
   _insectAmount: 0
   _costAntDisplay: {fileID: 1443090}
   _moneygetting: {fileID: 1517882527}
+  _insectCostIncrease: 50
   _TypeOfInsect: wesp
 --- !u!114 &965556953
 MonoBehaviour:
@@ -3574,6 +3577,7 @@ MonoBehaviour:
   _insectAmount: 0
   _costAntDisplay: {fileID: 1747124300}
   _moneygetting: {fileID: 1517882527}
+  _insectCostIncrease: 25
   _TypeOfInsect: sprinkhaan
 --- !u!114 &1263114536
 MonoBehaviour:
@@ -4272,8 +4276,10 @@ MonoBehaviour:
   _amountOfInsectDisplay: {fileID: 508531183}
   _amountOfInsectDisplayshop: {fileID: 2000722196}
   _timer: 0
-  _moneyEarendThroughHoney: 1
+  _moneyEarendThroughHoney: 5
   _earnMoneyTimerMAX: 600
+  _amountOfBees: 0
+  _beesBought: {fileID: 853439170}
 --- !u!212 &1517882528
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5819,6 +5825,7 @@ MonoBehaviour:
   _insectAmount: 0
   _costAntDisplay: {fileID: 1912504757}
   _moneygetting: {fileID: 1517882527}
+  _insectCostIncrease: 75
   _TypeOfInsect: Kever
 --- !u!114 &1989930306
 MonoBehaviour:
@@ -6322,6 +6329,7 @@ MonoBehaviour:
   _insectAmount: 0
   _costAntDisplay: {fileID: 1610350148}
   _moneygetting: {fileID: 1517882527}
+  _insectCostIncrease: 10
   _TypeOfInsect: mier
 --- !u!114 &2062685786
 MonoBehaviour:

@@ -10,6 +10,7 @@ public class BuyingAInsectorSpider : MonoBehaviour
     [SerializeField] TMP_Text _costAntDisplay;
     [SerializeField] private GeldSyteem _moneygetting;
     private double _money;
+    [SerializeField] private double _insectCostIncrease;
     [SerializeField] private string _TypeOfInsect;
     private string _intsectType;
     
@@ -31,7 +32,7 @@ public class BuyingAInsectorSpider : MonoBehaviour
         if (_money >= _insectCost)
         {
             _moneygetting._amountOfMoneyInsect = _money - _insectCost;
-            _insectCost = _insectCost + 10;
+            _insectCost = _insectCost + _insectCostIncrease;
             _insectAmount = _insectAmount + 1;
             print("can buy");
         }
