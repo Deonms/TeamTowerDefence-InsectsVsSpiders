@@ -19,6 +19,6 @@ public class totheshop : MonoBehaviour
     }
     public void Onclick()
     {
-        _camera.transform.position = new Vector3(-_xCoords, _yCoords, -10f); ;
+        _camera.transform.position = new Vector3(_xCoords, _yCoords, -10f); ;
     }
 }
