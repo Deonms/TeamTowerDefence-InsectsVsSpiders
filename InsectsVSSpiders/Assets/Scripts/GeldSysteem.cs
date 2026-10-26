@@ -13,8 +13,8 @@ public class GeldSyteem : MonoBehaviour
     [SerializeField] private int _timer = 0;
     [SerializeField] private int _moneyEarendThroughHoney = 1;
     [SerializeField] private int _earnMoneyTimerMAX = 600;
-    private int _amountOfBees = 0;
-    private AmountOfSpidersAndInsects _insectsAndSpiders;
+    [SerializeField] private double _amountOfBees;
+    [SerializeField] private BuyingAInsectorSpider _beesBought;
     
 
 
@@ -31,19 +31,17 @@ public class GeldSyteem : MonoBehaviour
         _amountOfSpiderDisplay.text = $"{_amountOfMoneySpider}";
         _amountOfSpiderDisplayshop.text = $"{_amountOfMoneySpider}";
         _amountOfInsectDisplayshop.text = $"{_amountOfMoneyInsect}";
-        
+        _beesBought._insectAmount = _amountOfBees;
 
         _timer = _timer + 1;
         if (_timer >= _earnMoneyTimerMAX)
         {
+            _beesBought._insectAmount = _amountOfBees;
             _amountOfMoneyInsect = _amountOfMoneyInsect + (_moneyEarendThroughHoney * _amountOfBees);
             _timer = 0;
         };
 
 
     }
-    private void Awake()
-    {
-        _insectsAndSpiders = GetComponent<AmountOfSpidersAndInsects>();
-    }
+    
 }

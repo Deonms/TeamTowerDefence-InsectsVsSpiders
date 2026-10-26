@@ -6,7 +6,7 @@ public class BuyingAInsectorSpider : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private AmountOfSpidersAndInsects _insectsAndSpiders;
     [SerializeField] double _insectCost = 10;
-    [SerializeField] double _insectAmount;
+    [SerializeField] public double _insectAmount;
     [SerializeField] TMP_Text _costAntDisplay;
     [SerializeField] private GeldSyteem _moneygetting;
     private double _money;
