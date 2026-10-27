@@ -2,7 +2,7 @@
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class TestingAim : MonoBehaviour
+public class BugAim : MonoBehaviour
 {
     [Header("Target")]
     [SerializeField]private Transform _Target;
