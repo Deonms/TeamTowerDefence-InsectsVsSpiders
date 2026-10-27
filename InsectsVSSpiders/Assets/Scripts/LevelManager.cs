@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    // Zorgt ervoor dat er maar één LevelManager gebruikt kan worden
+    public static LevelManager Main;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private Transform _startPoint;
+    public Transform[] Path;
+
+    private void Awake()
     {
-        
+        // Zet deze LevelManager als de hoofd-LevelManager
+        Main = this;
     }
 }
