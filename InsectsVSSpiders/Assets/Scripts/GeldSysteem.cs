@@ -34,7 +34,7 @@ public class GeldSyteem : MonoBehaviour
 
         _amountOfBees = _beesBought._insectAmount;
 
-        _timer = _timer + 1;
+        _timer = _timer ++;
         if (_timer >= _earnMoneyTimerMAX)
         {
             _amountOfMoneyInsect = _amountOfMoneyInsect + (_moneyEarendThroughHoney * _amountOfBees);
