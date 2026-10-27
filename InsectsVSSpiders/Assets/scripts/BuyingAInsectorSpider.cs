@@ -10,14 +10,14 @@ public class BuyingAInsectorSpider : MonoBehaviour
     [SerializeField] TMP_Text _costAntDisplay;
     [SerializeField] private GeldSyteem _moneygetting;
     private double _money;
-    [SerializeField] private GameObject _TypeOfInsect;
+    [SerializeField] private double _insectCostIncrease;
+    [SerializeField] private string _TypeOfInsect;
     private string _intsectType;
-    [SerializeField] private Transform _Unitcashe;
     
 
     void Start()
     {
-       //_intsectType = $"_{_TypeOfInsect}amount";
+       _intsectType = $"_{_TypeOfInsect}amount";
     }
 
     // Update is called once per frame
@@ -32,9 +32,8 @@ public class BuyingAInsectorSpider : MonoBehaviour
         if (_money >= _insectCost)
         {
             _moneygetting._amountOfMoneyInsect = _money - _insectCost;
-            _insectCost = _insectCost + 10;
-            _insectAmount = _insectAmount++;
-            Instantiate(_TypeOfInsect, _Unitcashe.position, Quaternion.identity);
+            _insectCost = _insectCost + _insectCostIncrease;
+            _insectAmount = _insectAmount + 1;
             print("can buy");
         }
         else
