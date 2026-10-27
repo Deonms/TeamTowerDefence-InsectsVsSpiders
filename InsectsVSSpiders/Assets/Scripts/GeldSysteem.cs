@@ -33,7 +33,7 @@ public class GeldSyteem : MonoBehaviour
         _amountOfInsectDisplayshop.text = $"{_amountOfMoneyInsect}";
         _beesBought._insectAmount = _amountOfBees;
 
-        _timer = _timer + 1;
+        _timer = _timer ++;
         if (_timer >= _earnMoneyTimerMAX)
         {
             _beesBought._insectAmount = _amountOfBees;
