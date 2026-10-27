@@ -18,18 +18,26 @@ public class SpiderSpawner : MonoBehaviour
     [SerializeField] private float _spidersPerSecondCap = 15f;
 
     [Header("Events")]
+    // Wordt aangeroepen wanneer een spin sterft of de finish bereikt.
     public static UnityEvent OnSpiderDestroy = new UnityEvent();
+
+    // Wordt aangeroepen wanneer een spin spawnt.
+    public static UnityEvent OnSpiderSpawn = new UnityEvent();
 
     private int _currentWave = 1;
     private float _timeSinceLastSpawn;
     private int _spidersAlive;
-    [SerializeField] private int _spidersLeftToSpawn;
+    private int _spidersLeftToSpawn;
     private float _sps;
     private bool _isSpawning = false;
 
     private void Awake()
     {
+        // Zorgt ervoor dat het aantal levende spinnen wordt bijgewerkt
+        // wanneer het OnSpiderDestroy-event wordt aangeroepen.
         OnSpiderDestroy.AddListener(SpiderDestroyed);
+
+        OnSpiderSpawn.AddListener(SpiderSpawned);
     }
 
     private void Start()
@@ -59,9 +67,16 @@ public class SpiderSpawner : MonoBehaviour
         }
     }
 
+    // Verhoog het aantal levende spinnen wanneer een baby verschijnt.
+    private void SpiderSpawned()
+    {
+        _spidersAlive++;
+    }
+
+    // Verlaag het aantal levende spinnen wanneer een spin sterft.
     private void SpiderDestroyed()
     {
-        _spidersAlive--;
+        _spidersAlive = Mathf.Max(0, _spidersAlive - 1);
     }
 
     private IEnumerator StartWave()
@@ -69,7 +84,11 @@ public class SpiderSpawner : MonoBehaviour
         yield return new WaitForSeconds(_timeBetweenWaves);
 
         _isSpawning = true;
+
+        // Bereken hoeveel spinnen deze wave bevat.
         _spidersLeftToSpawn = SpidersPerWave();
+
+        // Bereken de spawnfrequentie voor deze wave.
         _sps = SpidersPerSecond();
     }
 
@@ -89,32 +108,34 @@ public class SpiderSpawner : MonoBehaviour
         Vector3 spawnPosition = LevelManager.Main.StartPoint.position;
         spawnPosition.z = -2f;
 
-        // Spawn a normal spider.
+        // Spawn een normale spin en verhoog het aantal levende spinnen.
         Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
         _spidersAlive++;
 
-        // Check whether a big spider should spawn.
-        if (_currentWave >= 3 &&
-            _bigSpiderPrefabs.Length > 0 &&
-            Random.value < _bigSpiderSpawnChance)
+        // Grote spinnen kunnen pas vanaf wave 3 verschijnen.
+        // Random.value bepaalt of de ingestelde spawnkans wordt gehaald.
+        if (_currentWave >= 3 &&_bigSpiderPrefabs.Length > 0 && Random.value < _bigSpiderSpawnChance)
         {
             index = Random.Range(0, _bigSpiderPrefabs.Length);
             prefabToSpawn = _bigSpiderPrefabs[index];
 
-            // Spawn a big spider.
+            // Spawn een grote spin en verhoog het aantal levende spinnen.
             Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
             _spidersAlive++;
         }
     }
 
-
     private int SpidersPerWave()
     {
+        // Bereken het aantal spinnen voor de huidige wave.
+        // Het aantal neemt toe naarmate het wave-nummer hoger wordt.
         return Mathf.RoundToInt(_baseSpiders * Mathf.Pow(_currentWave, _diffScalingFactor));
     }
 
     private float SpidersPerSecond()
     {
+        // Bereken de spawnfrequentie en zorg ervoor dat deze
+        // niet boven de ingestelde maximale snelheid uitkomt.
         return Mathf.Clamp(_spidersPerSecond * Mathf.Pow(_currentWave, _diffScalingFactor), 0, _spidersPerSecondCap);
     }
 }

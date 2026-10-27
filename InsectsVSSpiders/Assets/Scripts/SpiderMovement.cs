@@ -4,7 +4,7 @@ using static UnityEngine.GraphicsBuffer;
 public class SpiderMovement : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Rigidbody2D _rb;
+    [SerializeField] protected Rigidbody2D _rb;
 
     [Header("Attributes")]
     [SerializeField] protected float _moveSpeed = 2f;
@@ -19,7 +19,11 @@ public class SpiderMovement : MonoBehaviour
 
     protected virtual void Start()
     {
-        _target = LevelManager.Main.Path[_pathIndex];
+        if (_target == null)
+        {
+            _pathIndex = 0;
+            _target = LevelManager.Main.Path[_pathIndex];
+        }
     }
 
     protected virtual void Update()
@@ -83,7 +87,7 @@ public class SpiderMovement : MonoBehaviour
 
         if (_health <= 0) 
         { 
-            Die();
+            Die(true);
         }
     }
 
@@ -102,7 +106,20 @@ public class SpiderMovement : MonoBehaviour
         }
     }
 
+    public void InitializePathAtIndex(int index)
+    {
+        _pathIndex = Mathf.Clamp(index, 0, LevelManager.Main.Path.Length - 1);
+        _target = LevelManager.Main.Path[_pathIndex];
+    }
+
+
     public void Die()
+    {
+        // De spin heeft het einde bereikt.
+        Die(false);
+    }
+
+    public void Die(bool killedByPlayer)
     {
         if (_isDead)
         {
@@ -116,7 +133,11 @@ public class SpiderMovement : MonoBehaviour
             _rb.linearVelocity = Vector2.zero;
         }
 
-        OnDeath();
+        // Only trigger special death effects when killed by the player.
+        if (killedByPlayer)
+        {
+            OnDeath();
+        }
 
         SpiderSpawner.OnSpiderDestroy.Invoke();
         Destroy(gameObject);

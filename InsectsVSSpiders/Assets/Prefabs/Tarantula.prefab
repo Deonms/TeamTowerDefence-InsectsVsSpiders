@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 818814059223307253}
   - component: {fileID: 1265912233859261389}
   - component: {fileID: 6604109537569891416}
-  - component: {fileID: 9112811878909013207}
+  - component: {fileID: -6809614047928634539}
   m_Layer: 0
   m_Name: Tarantula
   m_TagString: Untagged
@@ -163,7 +163,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &9112811878909013207
+--- !u!114 &-6809614047928634539
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,9 +172,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5345486606868744061}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee7869d6298c3584f90439e9dab3c1f2, type: 3}
+  m_Script: {fileID: 11500000, guid: c8ac460c7274303419a377762e24ee63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 1265912233859261389}
   _moveSpeed: 1.5
   _health: 5
+  _webRange: 4
+  _attackCooldown: 3
+  _stunDuration: 2
+  _insectLayer:
+    serializedVersion: 2
+    m_Bits: 128

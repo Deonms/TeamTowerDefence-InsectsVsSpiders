@@ -26,31 +26,31 @@ public class BallistaSpider : SpiderMovement
 
         foreach (SpiderMovement spider in spiders)
         {
-            // Ignore this Ballista and dead spiders.
+            // Negeer deze Ballista en dode spinnen.
             if (spider == this || spider.IsDead)
             {
                 continue;
             }
 
-            // Do not throw the Mother Spider.
+            // Niet de Moeder Spin gooien.
             if (spider.GetComponent<MotherSpider>() != null)
             {
                 continue;
             }
 
-            // Do not throw Newcastle Big Boy.
+            // Niet de Newcastle Big Boy gooien.
             if (spider.GetComponent<BigBoySpider>() != null)
             {
                 continue;
             }
 
-            // Do not throw Ballista Spider.
+            // Niet de Ballista Spin gooien.
             if (spider.GetComponent<BallistaSpider>() != null)
             {
                 continue;
             }
 
-            // Only select spiders behind the Ballista.
+            // Alleen spinnen die achter de Ballista spin kiezen.
             if (spider.PathIndex >= PathIndex)
             {
                 continue;
@@ -65,7 +65,7 @@ public class BallistaSpider : SpiderMovement
             }
         }
 
-        // Only one spider is selected per attack.
+        // Alleen één spin wordt gekozen per aanval.
         if (nearestSpider == null)
         {
             return;
@@ -73,17 +73,15 @@ public class BallistaSpider : SpiderMovement
 
         int destinationIndex = nearestSpider.PathIndex + _waypointsToThrow;
 
-        // Do not throw onto the final waypoint.
+        // Niet naar de laatste tussenpunt gooien.
         if (destinationIndex >= LevelManager.Main.Path.Length - 1)
         {
             return;
         }
 
-        Debug.Log("Ballista threw: " + nearestSpider.name);
-
         nearestSpider.MoveToPathIndex(destinationIndex);
 
-        // Start the cooldown.
+        // Start de cooldown.
         _nextThrowTime = Time.time + _throwCooldown;
     }
 }
