@@ -178,3 +178,6 @@ MonoBehaviour:
   _rb: {fileID: 1265912233859261389}
   _moveSpeed: 1.25
   _health: 10
+  _babySpiderPrefab: {fileID: 5345486606868744061, guid: b32686cdb1a241b49b5a041edd985d87, type: 3}
+  _babyCount: 3
+  _spawnRadius: 0.5

@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 1265912233859261389}
-  _moveSpeed: 2.5
+  _moveSpeed: 2
   _health: 3
   _throwRange: 1
   _throwCooldown: 10
