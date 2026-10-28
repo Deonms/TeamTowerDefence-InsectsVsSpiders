@@ -992,7 +992,7 @@ MonoBehaviour:
   _insectCost: 150
   _insectAmount: 0
   _costAntDisplay: {fileID: 2057368206}
-  _moneygetting: {fileID: 1988769750}
+  _moneygetting: {fileID: 1075133749}
   _insectCostIncrease: 50
   _TypeOfInsect: {fileID: 0}
   _Unitcashe: {fileID: 0}
@@ -2456,7 +2456,7 @@ MonoBehaviour:
   _insectCost: 50
   _insectAmount: 0
   _costAntDisplay: {fileID: 1808967296}
-  _moneygetting: {fileID: 1988769750}
+  _moneygetting: {fileID: 1075133749}
   _insectCostIncrease: 25
   _TypeOfInsect: {fileID: 0}
   _Unitcashe: {fileID: 0}
@@ -4851,7 +4851,7 @@ MonoBehaviour:
   _insectCost: 10
   _insectAmount: 0
   _costAntDisplay: {fileID: 1352101156}
-  _moneygetting: {fileID: 1988769750}
+  _moneygetting: {fileID: 1075133749}
   _insectCostIncrease: 10
   _TypeOfInsect: {fileID: 0}
   _Unitcashe: {fileID: 0}
@@ -7632,7 +7632,7 @@ MonoBehaviour:
   _insectCost: 200
   _insectAmount: 0
   _costAntDisplay: {fileID: 1560662206}
-  _moneygetting: {fileID: 1988769750}
+  _moneygetting: {fileID: 1075133749}
   _insectCostIncrease: 75
   _TypeOfInsect: {fileID: 0}
   _Unitcashe: {fileID: 0}
@@ -13853,7 +13853,7 @@ MonoBehaviour:
   _insectCost: 100
   _insectAmount: 0
   _costAntDisplay: {fileID: 165608317}
-  _moneygetting: {fileID: 1988769750}
+  _moneygetting: {fileID: 1075133749}
   _insectCostIncrease: 25
   _TypeOfInsect: {fileID: 0}
   _Unitcashe: {fileID: 0}
@@ -15309,7 +15309,7 @@ MonoBehaviour:
   _insectCost: 500
   _insectAmount: 0
   _costAntDisplay: {fileID: 1507447697}
-  _moneygetting: {fileID: 1988769750}
+  _moneygetting: {fileID: 1075133749}
   _insectCostIncrease: 100
   _TypeOfInsect: {fileID: 0}
   _Unitcashe: {fileID: 0}
