@@ -4,7 +4,7 @@ using UnityEngine;
 public class BuyingAInsectorSpider : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private AmountOfSpidersAndInsects _insectsAndSpiders;
+    
     [SerializeField] double _insectCost = 10;
     [SerializeField] public double _insectAmount;
     [SerializeField] TMP_Text _costAntDisplay;
