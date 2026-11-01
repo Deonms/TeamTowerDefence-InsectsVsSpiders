@@ -20,7 +20,6 @@ public class SpiderSpawner : MonoBehaviour
     [Header("Events")]
     // Wordt aangeroepen wanneer een spin sterft of de finish bereikt.
     public static UnityEvent OnSpiderDestroy = new UnityEvent();
-
     // Wordt aangeroepen wanneer een spin spawnt.
     public static UnityEvent OnSpiderSpawn = new UnityEvent();
 

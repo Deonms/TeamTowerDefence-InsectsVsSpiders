@@ -37,11 +37,16 @@ public class SpiderMovement : MonoBehaviour
         {
             _pathIndex++;
 
-            if (_pathIndex == LevelManager.Main.Path.Length)
+            if (_pathIndex >= LevelManager.Main.Path.Length)
             {
+                // Registreer dat deze spin de finish heeft bereikt.
+                GameManager.Main.SpiderReachedEnd();
+
+                // Verwijder de spin volgens de bestaande logica.
                 Die();
                 return;
-            } else
+            }
+            else
             {
                 // Stel het volgende punt in als nieuw doel
                 _target = LevelManager.Main.Path[_pathIndex];
