@@ -32,7 +32,7 @@ public class TarantulaSpider : SpiderMovement
             }
 
             stun.ApplyStun(_stunDuration);
-            _nextAttackTime = Time.deltaTime + _attackCooldown;
+            _nextAttackTime = Time.time + _attackCooldown;
             break;
         }
     }
