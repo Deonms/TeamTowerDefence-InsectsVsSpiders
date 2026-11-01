@@ -974,7 +974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab315ecb579c730458095bbfd9084dd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _xCoords: 0
+  _xCoords: 35.36
   _yCoords: 0.87
   _camera: {fileID: 1645846169}
 --- !u!114 &156454231
@@ -2438,7 +2438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab315ecb579c730458095bbfd9084dd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _xCoords: 0
+  _xCoords: 35.36
   _yCoords: 0.87
   _camera: {fileID: 1645846169}
 --- !u!114 &355044703
@@ -4833,7 +4833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab315ecb579c730458095bbfd9084dd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _xCoords: 0
+  _xCoords: 35.36
   _yCoords: 0.87
   _camera: {fileID: 1645846169}
 --- !u!114 &780718107
@@ -7614,7 +7614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab315ecb579c730458095bbfd9084dd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _xCoords: 0
+  _xCoords: 35.36
   _yCoords: 0.87
   _camera: {fileID: 1645846169}
 --- !u!114 &1255617851
@@ -13835,7 +13835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab315ecb579c730458095bbfd9084dd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _xCoords: 0
+  _xCoords: 35.36
   _yCoords: 0.87
   _camera: {fileID: 1645846169}
 --- !u!114 &1956076641
@@ -15291,7 +15291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab315ecb579c730458095bbfd9084dd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _xCoords: 0
+  _xCoords: 35.36
   _yCoords: 0.87
   _camera: {fileID: 1645846169}
 --- !u!114 &2147026183
