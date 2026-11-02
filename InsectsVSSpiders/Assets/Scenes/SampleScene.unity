@@ -4946,8 +4946,8 @@ MonoBehaviour:
   _costAntDisplay: {fileID: 1352101156}
   _moneygetting: {fileID: 1075133749}
   _insectCostIncrease: 10
-  _TypeOfInsect: {fileID: 0}
-  _Unitcashe: {fileID: 0}
+  _TypeOfInsect: {fileID: 617830542785164435, guid: c51d5998831ee2146a5fe5356f91e901, type: 3}
+  _Unitcashe: {fileID: 780718105}
 --- !u!114 &780718108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14268,7 +14268,7 @@ MonoBehaviour:
   _moneygetting: {fileID: 1075133749}
   _insectCostIncrease: 25
   _TypeOfInsect: {fileID: 0}
-  _Unitcashe: {fileID: 0}
+  _Unitcashe: {fileID: 1956076639}
 --- !u!114 &1956076642
 MonoBehaviour:
   m_ObjectHideFlags: 0
