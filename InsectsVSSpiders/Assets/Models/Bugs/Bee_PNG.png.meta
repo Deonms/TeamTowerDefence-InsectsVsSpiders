@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2efbd31fdd33b2c4abbd62a1252247aa
+guid: e2d7e0d375535db42bf1c61ce1c2aff5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -767842634614617014
-    second: Ant_0
+      213: 76770021949357388
+    second: Bee_PNG_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ant_0
+      name: Bee_PNG_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 31
-        width: 3416
-        height: 4996
+        x: 152
+        y: 139
+        width: 7696
+        height: 7045
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a4c456821331855f0800000000000000
-      internalID: -767842634614617014
+      spriteID: c4db0bf9dedb01100800000000000000
+      internalID: 76770021949357388
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ant_0: -767842634614617014
+      Bee_PNG_0: 76770021949357388
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
