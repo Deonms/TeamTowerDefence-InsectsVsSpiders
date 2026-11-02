@@ -2,20 +2,18 @@ using UnityEngine;
 
 public class Slime : Blast
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void OnCollisionEnter2D(Collision2D collision)
     {
-        
-    }
+        if (collision == null)
+            return;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        // Slow-effect doorgeven aan de enemy.
+        collision.gameObject.SendMessageUpwards(
+            "Slimed",
+            SendMessageOptions.DontRequireReceiver
+        );
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        //collision.gameObject.GetComponent<SpiderMovement>().Slimed();
+        // Ook normale Blast-functionaliteit uitvoeren.
+        base.OnCollisionEnter2D(collision);
     }
 }

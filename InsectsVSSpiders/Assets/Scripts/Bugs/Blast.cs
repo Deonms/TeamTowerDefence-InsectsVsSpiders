@@ -1,27 +1,42 @@
-using Unity.VisualScripting;
 using UnityEngine;
+
 
 public class Blast : MonoBehaviour
 {
-    [SerializeField]private int _Damage = 1;
+    [SerializeField] private int _Damage = 1;
+    [SerializeField] private float _LifeTime = 5f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private bool hasHit = false;
+
+    private void Start()
     {
-        
+        Destroy(gameObject, _LifeTime);
     }
 
-    // Update is called once per frame
-    void Update()
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject, 5f);
-    }
+        if (hasHit)
+            return;
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
+        SpiderMovement enemy =
+            collision.gameObject.GetComponentInParent<SpiderMovement>();
+
+        if (enemy != null)
+        {
+            hasHit = true;
+
+            Debug.Log("Projectile hit enemy: " + enemy.name);
+
+            enemy.TakeDamage(_Damage);
+        }
+        else
+        {
+            Debug.Log(
+                "Projectile hit something else: " +
+                collision.gameObject.name
+            );
+        }
+
         Destroy(gameObject);
-        print("Blast hit " + collision.gameObject.name);
-        //verander Health en TakeDamge naar wat jij al heb, ze zijn niet uniek
-        collision.gameObject.GetComponent<SpiderMovement>().TakeDamage(_Damage);
     }
 }
