@@ -84,18 +84,22 @@ public class SpiderMovement : MonoBehaviour
     public virtual void TakeDamage(int damage)
     {
         if (_isDead)
+        {
             return;
+        }
 
         _health -= damage;
 
-        Debug.Log(
-            name + " received " + damage +
-            " damage! Health remaining: " + _health
-        );
+<<<<<<< Updated upstream
+        if (_health <= 0) 
+        { 
+=======
+        Debug.Log(name + " received " + damage + " damage! Health remaining: " + _health);
 
         if (_health <= 0)
         {
             Debug.Log(name + " has been killed!");
+>>>>>>> Stashed changes
             Die(true);
         }
     }
