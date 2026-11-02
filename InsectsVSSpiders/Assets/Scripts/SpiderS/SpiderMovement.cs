@@ -83,16 +83,19 @@ public class SpiderMovement : MonoBehaviour
 
     public virtual void TakeDamage(int damage)
     {
-        // Als de spin al dood is, kan dit geen eens op geroepen worden
         if (_isDead)
-        {
             return;
-        }
 
         _health -= damage;
 
-        if (_health <= 0) 
-        { 
+        Debug.Log(
+            name + " received " + damage +
+            " damage! Health remaining: " + _health
+        );
+
+        if (_health <= 0)
+        {
+            Debug.Log(name + " has been killed!");
             Die(true);
         }
     }

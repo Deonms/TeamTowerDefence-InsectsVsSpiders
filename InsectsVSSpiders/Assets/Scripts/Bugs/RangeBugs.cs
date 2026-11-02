@@ -1,73 +1,104 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class RangeBugs : MonoBehaviour
 {
-    [SerializeField] HashSet<GameObject> _Targets = new HashSet<GameObject>();
-    private GameObject _CurrentTarget;
-    List<GameObject> OrderedEnemies = new List<GameObject>();
+    private readonly List<GameObject> OrderedEnemies =
+        new List<GameObject>();
 
-    private void Start()
-    {
-        
-    }
-    private void Update()
-    {
-        
-    }
+    private readonly Dictionary<GameObject, int> ColliderCounts =
+        new Dictionary<GameObject, int>();
 
+    private GameObject GetEnemy(Collider2D other)
+    {
+        if (other.attachedRigidbody != null)
+            return other.attachedRigidbody.gameObject;
+
+        return other.gameObject;
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print("Target Entered");
-       if( _Targets.Add(other.gameObject))
-        {   
-            OrderedEnemies.Add(other.gameObject); 
+        GameObject enemy = GetEnemy(other);
+
+        if (ColliderCounts.ContainsKey(enemy))
+        {
+            ColliderCounts[enemy]++;
+        }
+        else
+        {
+            ColliderCounts.Add(enemy, 1);
+            OrderedEnemies.Add(enemy);
         }
     }
+
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (_Targets.Remove(other.gameObject))
-        { 
-            OrderedEnemies.Remove(other.gameObject);
+        GameObject enemy = GetEnemy(other);
+
+        if (!ColliderCounts.ContainsKey(enemy))
+            return;
+
+        ColliderCounts[enemy]--;
+
+        if (ColliderCounts[enemy] <= 0)
+        {
+            ColliderCounts.Remove(enemy);
+            OrderedEnemies.Remove(enemy);
         }
-        
     }
+
+    private void CleanTargets()
+    {
+        for (int i = OrderedEnemies.Count - 1; i >= 0; i--)
+        {
+            if (OrderedEnemies[i] == null)
+            {
+                ColliderCounts.Remove(OrderedEnemies[i]);
+                OrderedEnemies.RemoveAt(i);
+            }
+        }
+    }
+
+    public GameObject FirstTarget()
+    {
+        CleanTargets();
+
+        if (OrderedEnemies.Count == 0)
+            return null;
+
+        return OrderedEnemies[0];
+    }
+
+    public GameObject LastTarget()
+    {
+        CleanTargets();
+
+        if (OrderedEnemies.Count == 0)
+            return null;
+
+        return OrderedEnemies[OrderedEnemies.Count - 1];
+    }
+
     public GameObject GetClosest(Vector3 targetPosition)
     {
+        CleanTargets();
+
         GameObject closest = null;
         float closestDistance = float.MaxValue;
 
-        foreach (GameObject obj in _Targets)
+        foreach (GameObject enemy in OrderedEnemies)
         {
-            float distance = (obj.transform.position - targetPosition).sqrMagnitude;
+            float distance =
+                (enemy.transform.position - targetPosition).sqrMagnitude;
 
             if (distance < closestDistance)
             {
                 closestDistance = distance;
-                closest = obj;
+                closest = enemy;
             }
         }
 
         return closest;
     }
-
-
-    public GameObject FirstTarget()
-    {
-
-        if(OrderedEnemies.Count == 0)
-        {
-            return null;
-        }
-        return OrderedEnemies.First();
-    }
-    public GameObject LastTarget()
-    {
-        _Targets.UnionWith(OrderedEnemies);
-        _CurrentTarget = OrderedEnemies[^1];
-        return _CurrentTarget;
-    }
-
 }

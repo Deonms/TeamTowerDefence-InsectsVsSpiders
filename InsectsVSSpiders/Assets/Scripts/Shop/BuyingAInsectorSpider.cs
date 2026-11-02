@@ -3,46 +3,104 @@ using UnityEngine;
 
 public class BuyingAInsectorSpider : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    
-    [SerializeField] double _insectCost = 10;
+    [Header("Insect price")]
+    [SerializeField] private double _insectCost = 10;
+    [SerializeField] private double _insectCostIncrease = 0;
     [SerializeField] public double _insectAmount;
-    [SerializeField] TMP_Text _costAntDisplay;
+
+    [Header("UI")]
+    [SerializeField] private TMP_Text _costAntDisplay;
+
+    [Header("Money")]
     [SerializeField] private GeldSyteem _moneygetting;
-    private double _money;
-    [SerializeField] private double _insectCostIncrease;
+
+    [Header("Insect")]
     [SerializeField] private GameObject _TypeOfInsect;
-    private string _intsectType;
-    [SerializeField] private Transform _Unitcashe;
-    
 
-    void Start()
+    [Header("Placement")]
+    [SerializeField] private InsectPlacementSystem _placementSystem;
+
+    private bool _purchasePending = false;
+
+    private void Start()
     {
-       
+        UpdateCostDisplay();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        _costAntDisplay.text = $"{_insectCost}";
-        _money = _moneygetting._amountOfMoneyInsect;
-    }
-    
     public void BuyInsect()
     {
-        if (_money >= _insectCost)
-        {
-            _moneygetting._amountOfMoneyInsect = _money - _insectCost;
-            _insectCost = _insectCost + _insectCostIncrease;
-            _insectAmount = _insectAmount + 1;
-            Instantiate(_TypeOfInsect, _Unitcashe.position, Quaternion.identity);
+        if (_purchasePending)
+            return;
 
-            print("can buy");
+        if (_moneygetting == null ||
+            _TypeOfInsect == null ||
+            _placementSystem == null)
+        {
+            Debug.LogError("Buying system is not fully configured!");
+            return;
+        }
+
+        double currentMoney =
+            _moneygetting._amountOfMoneyInsect;
+
+        if (currentMoney < _insectCost)
+        {
+            Debug.Log("Not enough money!");
+            return;
+        }
+
+        // Start placement first.
+        bool started = _placementSystem.StartPlacement(
+            _TypeOfInsect,
+            OnPlacementFinished
+        );
+
+        if (!started)
+            return;
+
+        // Reserve the money.
+        _moneygetting._amountOfMoneyInsect =
+            currentMoney - _insectCost;
+
+        _purchasePending = true;
+
+        Debug.Log("Choose a location for your insect!");
+    }
+
+    private void OnPlacementFinished(bool placed)
+    {
+        _purchasePending = false;
+
+        if (placed)
+        {
+            // Purchase completed.
+            _insectAmount++;
+
+            // Increase price for next purchase.
+            _insectCost += _insectCostIncrease;
+
+            Debug.Log("Insect successfully placed");
         }
         else
         {
-            print("can not buy");
+            // Refund money if placement was cancelled.
+            if (_moneygetting != null)
+            {
+                _moneygetting._amountOfMoneyInsect += _insectCost;
+            }
+
+            Debug.Log("plaatsen geanuleerd. geld terug gegeven");
         }
 
+        UpdateCostDisplay();
+    }
+
+    private void UpdateCostDisplay()
+    {
+        if (_costAntDisplay != null)
+        {
+            _costAntDisplay.text =
+                _insectCost.ToString("0.##");
+        }
     }
 }
