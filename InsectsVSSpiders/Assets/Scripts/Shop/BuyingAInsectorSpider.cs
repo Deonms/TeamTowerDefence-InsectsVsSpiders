@@ -34,7 +34,7 @@ public class BuyingAInsectorSpider : MonoBehaviour
         {
             _moneygetting._amountOfMoneyInsect = _money - _insectCost;
             _insectCost = _insectCost + _insectCostIncrease;
-            _insectAmount = _insectAmount++;
+            _insectAmount = _insectAmount + 1;
             Instantiate(_TypeOfInsect, _Unitcashe.position, Quaternion.identity);
 
             print("can buy");
