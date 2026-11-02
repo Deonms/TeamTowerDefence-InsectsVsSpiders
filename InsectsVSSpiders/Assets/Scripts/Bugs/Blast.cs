@@ -14,7 +14,7 @@ public class Blast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        Destroy(gameObject, 5f);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -22,6 +22,6 @@ public class Blast : MonoBehaviour
         Destroy(gameObject);
         print("Blast hit " + collision.gameObject.name);
         //verander Health en TakeDamge naar wat jij al heb, ze zijn niet uniek
-        collision.gameObject.GetComponent<SpiderMovement>().TakeDamage(1);
+        collision.gameObject.GetComponent<SpiderMovement>().TakeDamage(_Damage);
     }
 }

@@ -78,6 +78,7 @@ public class SpiderMovement : MonoBehaviour
 
     public virtual void TakeDamage(int damage)
     {
+        // Als de spin al dood is, kan dit geen eens op geroepen worden
         if (_isDead)
         {
             return;
@@ -112,7 +113,7 @@ public class SpiderMovement : MonoBehaviour
         _target = LevelManager.Main.Path[_pathIndex];
     }
 
-
+    //Waarom zij der twee Die() methodes?!
     public void Die()
     {
         // De spin heeft het einde bereikt.
@@ -142,6 +143,15 @@ public class SpiderMovement : MonoBehaviour
         SpiderSpawner.OnSpiderDestroy.Invoke();
         Destroy(gameObject);
     }
+
+    /*protected virtual void Slimed()
+    {
+        _moveSpeed /= 2f;
+        for (int i = 10; i > 1; i--)
+        {
+            _moveSpeed *= 2f;
+        }
+    }*/
 
     protected virtual void OnDeath()
     {
