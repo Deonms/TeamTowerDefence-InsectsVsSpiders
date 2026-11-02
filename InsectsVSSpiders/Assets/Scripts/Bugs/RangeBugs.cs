@@ -3,94 +3,113 @@ using UnityEngine;
 
 public class RangeBugs : MonoBehaviour
 {
-    private readonly List<GameObject> OrderedEnemies =
-        new List<GameObject>();
-
-    private readonly Dictionary<GameObject, int> ColliderCounts =
-        new Dictionary<GameObject, int>();
-
-    private GameObject GetEnemy(Collider2D other)
+    private class EnemyEntry
     {
-        if (other.attachedRigidbody != null)
-            return other.attachedRigidbody.gameObject;
+        public SpiderMovement enemy;
+        public HashSet<int> colliderIds = new HashSet<int>();
+    }
 
-        return other.gameObject;
+    private readonly List<EnemyEntry> enemies =
+        new List<EnemyEntry>();
+
+    private SpiderMovement GetEnemy(Collider2D other)
+    {
+        SpiderMovement enemy =
+            other.GetComponentInParent<SpiderMovement>();
+
+        if (enemy == null && other.attachedRigidbody != null)
+        {
+            enemy = other.attachedRigidbody
+                .GetComponentInParent<SpiderMovement>();
+        }
+
+        return enemy;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        GameObject enemy = GetEnemy(other);
+        SpiderMovement enemy = GetEnemy(other);
 
-        if (ColliderCounts.ContainsKey(enemy))
+        if (enemy == null)
+            return;
+
+        EnemyEntry entry = enemies.Find(
+            e => e.enemy == enemy
+        );
+
+        if (entry == null)
         {
-            ColliderCounts[enemy]++;
+            entry = new EnemyEntry();
+            entry.enemy = enemy;
+            enemies.Add(entry);
         }
-        else
-        {
-            ColliderCounts.Add(enemy, 1);
-            OrderedEnemies.Add(enemy);
-        }
+
+        entry.colliderIds.Add(other.GetInstanceID());
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        GameObject enemy = GetEnemy(other);
+        SpiderMovement enemy = GetEnemy(other);
 
-        if (!ColliderCounts.ContainsKey(enemy))
+        if (enemy == null)
             return;
 
-        ColliderCounts[enemy]--;
+        EnemyEntry entry = enemies.Find(
+            e => e.enemy == enemy
+        );
 
-        if (ColliderCounts[enemy] <= 0)
+        if (entry == null)
+            return;
+
+        entry.colliderIds.Remove(other.GetInstanceID());
+
+        if (entry.colliderIds.Count == 0)
         {
-            ColliderCounts.Remove(enemy);
-            OrderedEnemies.Remove(enemy);
+            enemies.Remove(entry);
         }
     }
 
     private void CleanTargets()
     {
-        for (int i = OrderedEnemies.Count - 1; i >= 0; i--)
-        {
-            if (OrderedEnemies[i] == null)
-            {
-                ColliderCounts.Remove(OrderedEnemies[i]);
-                OrderedEnemies.RemoveAt(i);
-            }
-        }
+        enemies.RemoveAll(entry => entry.enemy == null);
     }
 
     public GameObject FirstTarget()
     {
         CleanTargets();
 
-        if (OrderedEnemies.Count == 0)
+        if (enemies.Count == 0)
             return null;
 
-        return OrderedEnemies[0];
+        return enemies[0].enemy.gameObject;
     }
 
     public GameObject LastTarget()
     {
         CleanTargets();
 
-        if (OrderedEnemies.Count == 0)
+        if (enemies.Count == 0)
             return null;
 
-        return OrderedEnemies[OrderedEnemies.Count - 1];
+        return enemies[enemies.Count - 1].enemy.gameObject;
     }
 
-    public GameObject GetClosest(Vector3 targetPosition)
+    public GameObject GetClosest(Vector3 position)
     {
         CleanTargets();
 
-        GameObject closest = null;
+        SpiderMovement closest = null;
         float closestDistance = float.MaxValue;
 
-        foreach (GameObject enemy in OrderedEnemies)
+        foreach (EnemyEntry entry in enemies)
         {
+            SpiderMovement enemy = entry.enemy;
+
+            if (enemy == null)
+                continue;
+
             float distance =
-                (enemy.transform.position - targetPosition).sqrMagnitude;
+                (enemy.transform.position - position).sqrMagnitude;
 
             if (distance < closestDistance)
             {
@@ -99,6 +118,6 @@ public class RangeBugs : MonoBehaviour
             }
         }
 
-        return closest;
+        return closest != null ? closest.gameObject : null;
     }
 }
