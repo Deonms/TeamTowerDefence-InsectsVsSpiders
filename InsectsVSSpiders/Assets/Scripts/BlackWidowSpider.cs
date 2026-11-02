@@ -110,5 +110,7 @@ public class BlackWidowSpider : SpiderMovement
         }
 
         _currentDodgeChance = Mathf.Min(_currentDodgeChance + _chanceIncreasePerHit, _maxDodgeChance);
+
+        base.TakeDamage(damage);
     }
 }
