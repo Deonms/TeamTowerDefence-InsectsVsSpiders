@@ -121,7 +121,6 @@ public class SpiderMovement : MonoBehaviour
         _target = LevelManager.Main.Path[_pathIndex];
     }
 
-    //Waarom zij der twee Die() methodes?!
     public void Die()
     {
         // De spin heeft het einde bereikt.
