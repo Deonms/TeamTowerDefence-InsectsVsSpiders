@@ -95,6 +95,7 @@ public class SpiderSpawner : MonoBehaviour
     {
         _isSpawning = false;
         _timeSinceLastSpawn = 0f;
+        GameManager.Main.SetWavesSurvived(_currentWave);
         _currentWave++;
         StartCoroutine(StartWave());
     }
