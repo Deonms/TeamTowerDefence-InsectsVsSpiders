@@ -17,9 +17,15 @@ public class GameManager : MonoBehaviour
     // Voorkomt dat de Game Over-scene meerdere keren wordt geladen.
     private bool _gameOver = false;
 
+    private int _wavesSurvived = 0;
+
+    // Houdt bij hoeveel waves de speler heeft overleefd.
+    public int WavesSurvived => _wavesSurvived;
+
     private void Awake()
     {
         Main = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void SpiderReachedEnd()
@@ -41,5 +47,10 @@ public class GameManager : MonoBehaviour
             // Laad de Game Over-scene.
             SceneManager.LoadScene(_gameOverSceneName);
         }
+    }
+
+    public void SetWavesSurvived(int wave)
+    {
+        _wavesSurvived = wave;
     }
 }
